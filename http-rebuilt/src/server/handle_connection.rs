@@ -4,6 +4,7 @@ use std::{
     io::{prelude::*, BufReader},
 };
 
+// Handle connection
 pub fn handle_connection(mut stream: TcpStream) {
     // Get incoming http request
     let buf_reader = BufReader::new(&mut stream);
@@ -22,8 +23,8 @@ pub fn handle_connection(mut stream: TcpStream) {
 
     // Update accordingly
     match request_type {
-        "GET" => println!("GET"),
-        "POST" => println!("POST"),
+        "GET" => get(),
+        "POST" => post(&http_request),
         "PUT" => println!("PUT"),
         "PATCH" => println!("PATCH"),
         "DELETE" => println!("DELETE"),
@@ -39,4 +40,13 @@ pub fn handle_connection(mut stream: TcpStream) {
         format!("{status_line}\r\n{length}\r\n\r\n{body}");
 
     stream.write_all(response.as_bytes()).unwrap();
+}
+
+fn get() {
+    println!("Get");
+}
+
+fn post<T>(http_request: &Vec<T>) {
+    // Get post request body
+    println!("Post");
 }
