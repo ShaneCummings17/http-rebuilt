@@ -1,2 +1,2 @@
-# http-rebuilt
-Rebuilding the http protocol in Rust.
+# http-server
+Building a basic HTTP server in rust.
