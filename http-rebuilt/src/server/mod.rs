@@ -1,2 +1,2 @@
-pub mod server_commands;
+pub mod open_server;
 pub mod handle_connection;

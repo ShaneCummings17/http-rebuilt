@@ -1,5 +1,5 @@
 mod server;
-use crate::server::server_commands::open_server;
+use crate::server::open_server::open_server;
 
 fn main() {
 

@@ -16,9 +16,23 @@ pub fn handle_connection(mut stream: TcpStream) {
     // Print request
     println!("Request: {:#?}", http_request);
 
+    // Figure out request type
+    let request_split: Vec<&str> = http_request[0].split("/").collect();
+    let request_type = (request_split).first().unwrap().trim();
+
+    // Update accordingly
+    match request_type {
+        "GET" => println!("GET"),
+        "POST" => println!("POST"),
+        "PUT" => println!("PUT"),
+        "PATCH" => println!("PATCH"),
+        "DELETE" => println!("DELETE"),
+        _ => println!("ERROR")
+    }
+
     // Return response
     let status_line = "HTTP/1.1 200 OK";
-    let body = "received";
+    let body = format!("Nice {request_type} request partner!");
     let length = body.chars().count();
 
     let response =
