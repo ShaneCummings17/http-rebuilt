@@ -3,7 +3,7 @@ use std::net::{SocketAddr, TcpListener};
 use super::handle_connection;
 
 // Constants
-const PORT: u16 = 6969;
+const PORT: u16 = 5555;
 
 // Functions
 pub fn open_server() {
